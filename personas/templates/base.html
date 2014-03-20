@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>{% block titulo %} {% endblock %}</title>
+		<link href="{% static "css/main.css" %}" rel="stylesheet" media="screen">
+	</head>
+	
+	<body>
+		<div id="contenedor">
+			<div id="header">
+				Banner
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="{% url 'personas.views.ingresoE' %}">Ingresar Estudiantes</a></li><br \>
+					<li><a href="{% url 'personas.views.ingresoP' %}">Ingresar Profesores</a></li><br \>
+					<li><a href="{% url 'personas.views.consultar_estudiante' %}">Consultar Estudiante</a></li><br \>
+					<li><a href="{% url 'personas.views.consultar_profesor' %}">Consultar Profesores</a></li><br \>
+				</ul>
+			</div>
+			<div id="contenido">
+				{% block contenido %} {% endblock %}
+			</div>
+			<div id="footer">
+				Footer
+			</div>
+		</div>
+		
+	</body>
+</html>

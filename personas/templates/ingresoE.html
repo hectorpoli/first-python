@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block titulo %}Ingreso de nuevos estudiantes{% endblock %}
+
+{% block contenido %}
+	<form action="{% if id %}{% url 'personas.views.ingresoE' id %}{% else %}{% url 'personas.views.ingresoE'%}{% endif%}" method="post">{% csrf_token %}
+		<table>
+			<tr>
+				<td>{{ form.nombre.label }}</td>
+				<td>{{ form.nombre }}</td>
+				<td class="error">{{ form.nombre.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.apellido.label }}</td>
+				<td>{{ form.apellido }}</td>
+				<td class="error">{{ form.apellido.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.cedula.label }}</td>
+				<td>{{ form.cedula }}</td>
+				<td class="error">{{ form.cedula.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.id_archivo.label }}</td>
+				<td>{{ form.id_archivo }}</td>
+				<td class="error">{{ form.id_archivo.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.direccion.label }}</td>
+				<td>{{ form.direccion }}</td>
+				<td class="error">{{ form.direccion.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.carrera.label }}</td>
+				<td>{{ form.carrera }}</td>
+				<td class="error">{{ form.carrera.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.descripcion.label }}</td>
+				<td>{{ form.descripcion }}</td>
+				<td class="error">{{ form.descripcion.errors }}</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="submit" value="Guardar" />
+				</td>
+			</tr>
+		</table>
+	</form>
+{% endblock %}

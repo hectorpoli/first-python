@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load personas_funciones %}
+{% block titulo %}Consultar estudiantes{% endblock %}
+{% block contenido %}
+	
+	<table class="tbConsulta" border="1" cellspacing="0" cellpadding="0">
+		<tr class="tablaTitulo">
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>Cédula</td>
+			<td>Dirección</td>
+			<td>Carrera</td>
+			<td>Descripción</td>
+			<td>Acciones</td>
+		</tr>
+		{% for e in estudiantes %}
+		<tr class="{% cycle 'row1' 'row2' %}">
+			<td>{% filter force_escape|upper %}{{ e.nombre }}{% endfilter %}</td>
+			<td>{% filter force_escape|upper %}{{ e.apellido }}{% endfilter %}</td>
+			<td>{{ e.cedula }}</td>
+			<td>{{ e.direccion }}</td>
+			<td>{{ e.carrera.nombre }}</td>
+			<td>{{ e.descripcion }}</td>
+			<td><a href="{% url 'personas.views.ingresoE' e.id %}">Modificar</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	<div class="pagination">
+		<span class="step-links">
+			{% generar_paginacion estudiantes %}
+		</span>
+	</div>
+	<div><a href="{% url 'personas.views.generar_pdf' estudiantes.number %}">Reporte</a></div>
+{% endblock %}

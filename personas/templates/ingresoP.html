@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block titulo %}Ingreso de nuevos profesores{% endblock %}
+
+{% block contenido %}
+	<form action="{% url 'personas.views.ingresoP' %}" method="post">{% csrf_token %}
+		
+		<table>
+			<tr>
+				<td>{{ form.nombre.label }}</td>
+				<td>{{ form.nombre }}</td>
+				<td>{{ form.nombre.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.apellido.label }}</td>
+				<td>{{ form.apellido }}</td>
+				<td>{{ form.apellido.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.cedula.label }}</td>
+				<td>{{ form.cedula }}</td>
+				<td>{{ form.cedula.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.id_archivo.label }}</td>
+				<td>{{ form.id_archivo }}</td>
+				<td>{{ form.id_archivo.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.direccion.label }}</td>
+				<td>{{ form.direccion }}</td>
+				<td>{{ form.direccion.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.materia.label }}</td>
+				<td>{{ form.materia }}</td>
+				<td>{{ form.materia.errors }}</td>
+			</tr>
+			<tr>
+				<td>{{ form.descripcion.label }}</td>
+				<td>{{ form.descripcion }}</td>
+				<td>{{ form.descripcion.errors }}</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="submit" value="Guardar" />
+				</td>
+			</tr>
+		</table>
+	</form>
+{% endblock %}
