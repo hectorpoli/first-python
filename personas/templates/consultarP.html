@@ -10,6 +10,7 @@
 			<td>Dirección</td>
 			<td>Materia</td>
 			<td>Descripción</td>
+			<td>Acciones</td>
 		</tr>
 		{% for e in profesores %}
 		<tr class="{% cycle 'row1' 'row2' %}">
@@ -19,6 +20,7 @@
 			<td>{{ e.direccion }}</td>
 			<td>{{ e.materia.nombre }}</td>
 			<td>{{ e.descripcion }}</td>
+			<td><a href="{% url 'personas.views.ingresoP' e.id %}">Modificar</a></td>
 		</tr>
 		{% endfor %}
 	</table>
@@ -28,4 +30,5 @@
 			{% generar_paginacion profesores %}
 		</span>
 	</div>
+	<div><a href="{% url 'personas.views.generar_pdf_profesor' profesores.number %}">Reporte</a></div>
 {% endblock %}

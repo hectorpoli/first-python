@@ -3,7 +3,7 @@
 {% block titulo %}Ingreso de nuevos profesores{% endblock %}
 
 {% block contenido %}
-	<form action="{% url 'personas.views.ingresoP' %}" method="post">{% csrf_token %}
+	<form action="{% if id %}{% url 'personas.views.ingresoP' id %}{% else %}{% url 'personas.views.ingresoP'%}{% endif%}" method="post">{% csrf_token %}
 		
 		<table>
 			<tr>

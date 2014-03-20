@@ -31,5 +31,5 @@
 			{% generar_paginacion estudiantes %}
 		</span>
 	</div>
-	<div><a href="{% url 'personas.views.generar_pdf' estudiantes.number %}">Reporte</a></div>
+	<div><a href="{% url 'personas.views.generar_pdf_estudiante' estudiantes.number %}">Reporte</a></div>
 {% endblock %}
